@@ -42,7 +42,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 
 				<configuration>    
-                	<mainClass>hadoop.WordCount</mainClass>
+                	<mainClass>hadoop.wordcount.WordCount</mainClass>
             	</configuration>
 
 			</plugin>
