@@ -51,7 +51,8 @@ public class WordCount {
   public static void main(String[] args) throws Exception {
     Configuration conf = new Configuration();
     Job job = Job.getInstance(conf, "word count");
-    job.setJarByClass(hadoop.wordcount.WordCount.class);
+    // job.setJarByClass(hadoop.wordcount.WordCount.class);
+    job.setJar("wordcount.jar");
     job.setMapperClass(hadoop.wordcount.TokenizerMapper.class);
     job.setCombinerClass(hadoop.wordcount.IntSumReducer.class);
     job.setReducerClass(hadoop.wordcount.IntSumReducer.class);
