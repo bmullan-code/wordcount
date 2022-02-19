@@ -12,6 +12,7 @@ import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.hadoop.thirdparty.org.checkerframework.common.reflection.qual.GetClass;
 
 
 public class WordCount {
@@ -52,11 +53,11 @@ public class WordCount {
     Configuration conf = new Configuration();
     
     Job job = Job.getInstance(conf, "word count");
-    job.setJarByClass(hadoop.wordcount.WordCount.class);
+    job.setJarByClass(WordCount.class);
     // job.setJar("wordcount.jar");
-    job.setMapperClass(hadoop.wordcount.TokenizerMapper.class);
-    job.setCombinerClass(hadoop.wordcount.IntSumReducer.class);
-    job.setReducerClass(hadoop.wordcount.IntSumReducer.class);
+    job.setMapperClass(TokenizerMapper.class);
+    job.setCombinerClass(IntSumReducer.class);
+    job.setReducerClass(IntSumReducer.class);
     job.setOutputKeyClass(Text.class);
     job.setOutputValueClass(IntWritable.class);
     FileInputFormat.addInputPath(job, new Path(args[0]));
